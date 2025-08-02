@@ -70,9 +70,10 @@ Function Connect-NerdioME {
   }
 
   End {
+    # Set the API version
+    Set-NerdioAPIVersion
 
     # Check if the connection was successful
     Test-NerdioConnection
-
   }
 }
