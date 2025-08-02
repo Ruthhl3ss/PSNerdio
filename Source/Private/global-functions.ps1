@@ -32,7 +32,7 @@ Function Test-NerdioConnection {
 
   # Make the API request
   $response = Invoke-RestMethod -Method Get `
-    -Uri "$script:NMEBaseurl/api/v1/test" `
+    -Uri "$script:NMEBaseurl/api/$Script:NMEApiVersion/test" `
     -Headers @{ "Authorization" = "Bearer $script:NMEAuthtoken" }
   if ($response) {
     Write-Verbose "Connection to Nerdio Manager for Enterprise is successful."
@@ -40,4 +40,9 @@ Function Test-NerdioConnection {
   else {
     Write-Error "Failed to connect to Nerdio Manager for Enterprise."
   }
+}
+
+Function Set-NerdioAPIVersion {
+  $Script:NMEApiVersion = "v1"
+  Write-Verbose "Nerdio Manager for Enterprise API version set to $Script:NMEApiVersion"
 }
