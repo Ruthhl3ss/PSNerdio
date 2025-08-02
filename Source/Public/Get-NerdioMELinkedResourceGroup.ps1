@@ -29,7 +29,7 @@ Function Get-NerdioMELinkedResourceGroup {
     try {
       $response = Invoke-RestMethod -Method Get `
         -Uri "$script:NMEBaseurl/api/$Script:NMEApiVersion/resourcegroup" `
-        -Headers @{ "Authorization" = "Bearer $script:NMEAuthtoken" }
+        -Headers $script:NMEAuthheader
     }
     catch {
       Throw "Failed to retrieve linked resource group: $_"
