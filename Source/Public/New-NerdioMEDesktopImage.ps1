@@ -20,7 +20,7 @@ function New-NerdioMEDesktopImage {
     [Parameter(Mandatory = $false, HelpMessage = "The source image to be used for the desktop image. This is a string that represents the source image ID from the Azure Marketplace. Defaults to a Windows 11 24h2 image if not specified.")]
     [string]$SourceImageId = "MicrosoftWindowsDesktop/windows-11/win11-24h2-avd/latest",
 
-    [Parameter(Mandatory = $false, HelpMessage = "The size of the VM to be used for the desktop image. Defaults to Standard_D2s_v3 if not specified.")]
+    [Parameter(Mandatory = $false, HelpMessage = "The size of the VM to be used for the desktop image. Defaults to Standard_D4s_v5 if not specified.")]
     [string]$VmSize = "Standard_D4s_v5",
 
     [Parameter(Mandatory = $false, HelpMessage = "The type of storage to be used for the desktop image. Defaults to Premium_LRS if not specified.")]
