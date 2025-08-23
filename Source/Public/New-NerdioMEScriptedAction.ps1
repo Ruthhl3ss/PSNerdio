@@ -11,7 +11,7 @@ Function New-NerdioMEScriptedAction {
     .PARAMETER ScriptPath
     Specifies the path to the script file.
     .PARAMETER ExecutionMode
-    Specifies the execution mode for the scripted action.
+    Specifies the execution mode for the scripted action. Combined is a custom script extension and Individual is an Azure Automation runbook.
     .PARAMETER Tags
     Specifies the tags for the scripted action.
     .PARAMETER ExecutionTimeOut
@@ -33,7 +33,7 @@ Function New-NerdioMEScriptedAction {
     [Parameter(Mandatory = $true, HelpMessage = "Enter the path to the script file.")]
     [string]$ScriptPath,
 
-    [Parameter(Mandatory = $false, HelpMessage = "Select the execution mode.")]
+    [Parameter(Mandatory = $false, HelpMessage = "Select the execution mode. Combined is a custom script extension and Individual is an Azure Automation runbook.")]
     [ValidateSet("Combined", "Individual")]
     [string]$ExecutionMode = "Combined",
 

@@ -189,12 +189,23 @@ function New-NerdioMEDesktopImage {
 
     If ($ScriptedActions) {
       foreach ($Action in $ScriptedActions) {
+        If ($Action.params) {
 
-        Write-Verbose "Scripted action provided: $($Action.name)"
-        # Add the scripted action to the body
-        $Body.jobPayload.ScriptedActions += [PSCustomObject]@{
-          name = $Action.name
-          id   = $Action.id
+          Write-Verbose "Scripted action parameters provided for: $($Action.name)"
+
+          $Body.jobPayload.ScriptedActions += [PSCustomObject]@{
+            name   = $Action.name
+            id     = $Action.id
+            params = $Action.params
+          }
+        }
+        else {
+          Write-Verbose "Scripted action provided: $($Action.name)"
+          # Add the scripted action to the body
+          $Body.jobPayload.ScriptedActions += [PSCustomObject]@{
+            name = $Action.name
+            id   = $Action.id
+          }
         }
       }
     }
