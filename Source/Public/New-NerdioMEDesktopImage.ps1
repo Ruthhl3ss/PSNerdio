@@ -85,9 +85,11 @@ function New-NerdioMEDesktopImage {
     [Int64]$ReplicaCount = 5,
 
     [Parameter(Mandatory = $false, HelpMessage = "Indicates whether hibernation is supported for the desktop image. Defaults to false if not specified.")]
-    [bool]$HibernationSupported = $false
+    [bool]$HibernationSupported = $false,
     #End of Region Parameters for Azure Compute Gallery Image
 
+    [Parameter(Mandatory = $false, HelpMessage = "The scripted action object containing name, id and other properties.")]
+    [System.Object[]]$ScriptedActions
   )
 
   begin {
@@ -130,11 +132,13 @@ function New-NerdioMEDesktopImage {
         tags                      = $tags
         installCertificates       = $false
         enableAppvClientService   = $EnableAppvClientService
+        scriptedActions           = @()
       }
       failurePolicy = [PSCustomObject]@{
         restart = $FailurePolicyRestart
         cleanup = $FailurePolicyCleanup
       }
+
     }
 
     switch ($ImageType) {
@@ -181,6 +185,33 @@ function New-NerdioMEDesktopImage {
           osState              = "Generalized"
         }
       }
+    }
+
+    If ($ScriptedActions) {
+      foreach ($Action in $ScriptedActions) {
+        If ($Action.params) {
+
+          Write-Verbose "Scripted action parameters provided for: $($Action.name)"
+
+          $Body.jobPayload.ScriptedActions += [PSCustomObject]@{
+            name   = $Action.name
+            id     = $Action.id
+            params = $Action.params
+          }
+        }
+        else {
+          Write-Verbose "Scripted action provided: $($Action.name)"
+          # Add the scripted action to the body
+          $Body.jobPayload.ScriptedActions += [PSCustomObject]@{
+            name = $Action.name
+            id   = $Action.id
+          }
+        }
+      }
+    }
+    else {
+      Write-Verbose "No scripted action provided, skipping."
+      $Body.jobPayload.scriptedActions = $null
     }
 
     #parameters that are based on the image type created. This is also based in on the parameters passed to the function
