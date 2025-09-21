@@ -18,6 +18,8 @@ Function Invoke-NerdioMEScriptedActionUpdate {
   Invoke-NerdioMEScriptedActionUpdate -Id "48" -Name "Optimize Microsoft Edge for AVD" -Description "Optimizes Microsoft Edge settings for Azure Virtual Desktop." -ScriptPath "C:\Scripts\OptimizeEdge.ps1"
   Updates a scripted action for Nerdio Manager for Enterprise.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

@@ -10,6 +10,8 @@ Function Invoke-NerdioMEScriptedAction {
     Invoke-NerdioMEScriptedAction -Name "TestModule"
     Invokes the specified scripted action for Nerdio Manager for Enterprise.
     .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

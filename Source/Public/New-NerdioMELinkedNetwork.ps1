@@ -13,6 +13,8 @@ Function New-NerdioMELinkedNetwork {
     -VNetname "MyVNet" -SubnetName "MySubnet" -IsDefault $true
   Creates a new linked Network in the specified subscription and resource group with the specified virtual network and subnet name. The IsDefault parameter indicates whether this linked Network should be set as the default.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

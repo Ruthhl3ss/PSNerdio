@@ -15,6 +15,8 @@ function Get-NerdioMEHostpool {
     Get-NerdioMEHostpool -Name "MyHostPool" -ResourceGroupName "MyResourceGroup" -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     Retrieves details of the host pool named "MyHostPool" in the specified resource group and subscription.
   .NOTES
+    Author: Niels Kok
+    Date: September 2025
   #>
   [CmdletBinding()]
   param (

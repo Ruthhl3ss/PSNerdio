@@ -12,6 +12,8 @@ Function Remove-NerdioMELinkedResourceGroup {
   Remove-NerdioMELinkedResourceGroup -SubscriptionId "MySubscriptionId" -ResourceGroupName "MyResourceGroupName"
   Removes the specified linked resource group in the given subscription.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

@@ -11,6 +11,9 @@ function Get-NerdioMEAutoScaleProfile {
     Get-NerdioMEAutoScaleProfile -Name "MyAutoScaleProfile"
     Retrieves details of the auto scale profile named "MyAutoScaleProfile".
   .NOTES
+    .NOTES
+    Author: Niels Kok
+    Date: September 2025
   #>
   [CmdletBinding()]
   Param (

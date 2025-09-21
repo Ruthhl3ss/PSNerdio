@@ -8,6 +8,9 @@ function Get-NerdioMEDesktopImageSchedule {
 
   .EXAMPLE
   Get-NerdioMEDesktopImageSchedule -Name "MyDesktopImage"
+  .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
   [CmdletBinding()]
   param (

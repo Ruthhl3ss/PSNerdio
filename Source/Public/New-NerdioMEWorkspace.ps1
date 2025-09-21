@@ -28,6 +28,8 @@ Function New-NerdioMEWorkspace {
     -Tags @{ Environment = "Test"; Owner = "Nerdio" }
   Creates a new workspace with the specified name in the given resource group.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

@@ -15,6 +15,8 @@ function Get-NerdioMEHostpoolActiveDirectoryConfig {
     Get-NerdioMEHostpoolActiveDirectoryConfig -Name "MyHostPool" -ResourceGroupName "MyResourceGroup" -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     Retrieves the Active Directory configuration of the host pool named "MyHostPool" in the specified resource group and subscription.
   .NOTES
+    Author: Niels Kok
+    Date: September 2025
   #>
   [CmdletBinding()]
   param (

@@ -15,6 +15,8 @@ function Remove-NerdioMEHostpool {
     Remove-NerdioMEHostpool -Name "MyHostPool" -ResourceGroupName "MyResourceGroup" -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     Removes the host pool named "MyHostPool" in the specified resource group and subscription.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
   [CmdletBinding()]
   param (

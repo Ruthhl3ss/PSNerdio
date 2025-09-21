@@ -9,6 +9,9 @@ function Get-NerdioMEADConfig {
     Get-NerdioMEADConfig
     Retrieves the Active Directory configuration for the Nerdio Managed Environment.
   .NOTES
+    .NOTES
+    Author: Niels Kok
+    Date: September 2025
   #>
   [CmdletBinding()]
   param ()

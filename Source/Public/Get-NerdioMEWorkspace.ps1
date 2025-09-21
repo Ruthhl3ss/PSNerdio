@@ -10,6 +10,8 @@ Function Get-NerdioMEWorkspace {
   Get-NerdioMEWorkspace
   Retrieves all workspaces for Nerdio Manager for Enterprise.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

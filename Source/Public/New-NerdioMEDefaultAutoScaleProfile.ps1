@@ -10,6 +10,8 @@ Function New-NerdioMEDefaultAutoScaleProfile {
     A description for the auto scale profile.
   .EXAMPLES
   .NOTES
+    Author: Niels Kok
+    Date: September 2025
   #>
 
   [CmdletBinding()]
@@ -96,34 +98,10 @@ Function New-NerdioMEDefaultAutoScaleProfile {
           }
         }
         rollingDrainMode = @{
-          isEnabled = $true
-          windows   = @(
-            @{
-              name                  = 'Window 1'
-              startTime             = '12:00:00'
-              percent               = 50
-              loadBalancing         = 'DepthFirst'
-              scaleInAggressiveness = 'High'
-            }
-          )
+          isEnabled = $false
         }
         preStage = @{
-          enable = $true
-          config = @{
-            days = @(1)
-            startWork = @{
-              duration = 600
-              hour     = 8
-              minutes  = 0
-            }
-            hostsToBeReady          = 10
-            preStageDiskType        = $true
-            preStageUnassigned      = $false
-            preStageUnassignedHosts = $false
-          }
-          isMultipleConfigsMode   = $false
-          configs                 = $null
-          intelligentPrestageMode = $null
+          enable = $false
         }
         autoHeal = @{
           enable = $true
