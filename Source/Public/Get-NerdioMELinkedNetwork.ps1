@@ -13,6 +13,8 @@ Function Get-NerdioMELinkedNetwork {
   Get-NerdioMELinkedNetwork -Name "subnet-name"
   Retrieves the linked Network for Nerdio Manager for Enterprise with the specified subnet name.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

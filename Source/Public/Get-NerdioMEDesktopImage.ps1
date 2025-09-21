@@ -10,6 +10,9 @@ Function Get-NerdioMEDesktopImage {
     Get-NerdioMEDesktopImage
 
     Retrieves the desktop image for the specified tenant.
+    .NOTES
+    Author: Niels Kok
+    Date: August 2025
     #>
 
   [CmdletBinding()]

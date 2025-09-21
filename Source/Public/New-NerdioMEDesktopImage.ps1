@@ -1,4 +1,79 @@
 function New-NerdioMEDesktopImage {
+  <#
+  .SYNOPSIS
+    Creates a new desktop image in Nerdio Manager for Enterprise.
+  .DESCRIPTION
+    This function creates a new desktop image associated with the Nerdio Manager for Enterprise.
+  .PARAMETER Name
+    The name of the desktop image to be created. This is a string that will be used to identify the desktop image in Nerdio Manager for Enterprise.
+  .PARAMETER Description
+    The description of the desktop image. This is a string that provides additional information about the desktop image.
+  .PARAMETER ImageType
+    The type of the desktop image to be created. This is a string that represents the type of desktop image, such as 'AzureComputeGallery' or 'Classic'.
+  .PARAMETER ImageIdResourceGroupName
+    The name of the resource group where the desktop image will be created. This is a string that represents the name of the resource group in Azure.
+  .PARAMETER SubscriptionId
+    Subscription Id for the managed resource group where the desktop image will be created. This is a string that represents the subscription ID in Azure.
+  .PARAMETER SourceImageId
+    The source image to be used for the desktop image. This is a string that represents the source image ID from the Azure Marketplace. Defaults to a Windows 11 24h2 image if not specified.
+  .PARAMETER VmSize
+    The size of the VM to be used for the desktop image. Defaults to Standard_D4s_v5 if not specified.
+  .PARAMETER StorageType
+    The type of storage to be used for the desktop image. Defaults to Premium_LRS if not specified.
+  .PARAMETER DiskPerformanceTier
+    The performance tier of the disk to be used for the desktop image. Defaults to P10 if not specified.
+  .PARAMETER DiskSize
+    The size of the disk to be used for the desktop image in GB. Defaults to 128 if not specified.
+  .PARAMETER VNetResourceId
+    The resourceid of the network that is linked to Nerdio. This is a string that represents the full resource id of the network in Azure.
+  .PARAMETER SubnetName
+    The name of the subnet that is linked to Nerdio
+  .PARAMETER TimeZone
+    The time zone to be set for the desktop image. Defaults to W. Europe Standard Time if not specified.
+  .PARAMETER tags
+    Tags to be applied to the desktop image. This is an object that contains key-value pairs for tagging the desktop image in Azure.
+  .PARAMETER AdminUserName
+    The name of the admin user to be created for the desktop image. Defaults to PSNerdioAdmin if not specified.
+  .PARAMETER AdminPassword
+    The password for the admin user to be created for the desktop image. Defaults to a secure password if not specified.
+  .PARAMETER DisableAccount
+    Indicates whether the admin account should be disabled. Defaults to false if not specified.
+  .PARAMETER TimeZoneRedirection
+    Indicates whether to enable time zone redirection for the desktop image. Defaults to true if not specified.
+  .PARAMETER UninstallFSLogix
+    Indicates whether to uninstall FSLogix for the desktop image. Defaults to true if not specified.
+  .PARAMETER SkipRemoveProfiles
+    Indicates whether to skip the removal of user profiles during the creation of the desktop image. Defaults to false if not specified.
+  .PARAMETER NoImageObjectRequired
+    Indicates whether to build a managed image for the desktop image. Defaults to false if not specified.
+  .PARAMETER EnableAppvClientService
+    Indicates whether to enable the AppV services for the desktop image. Defaults to false if not specified.
+  .PARAMETER FailurePolicyRestart
+    The failure policy for the desktop image creation. Defaults to restarting the job if not specified.
+  .PARAMETER FailurePolicyCleanup
+    Indicates whether to clean up resources in case of a failure during the creation of the desktop image. Defaults to true if not specified.
+  .PARAMETER AzureComputeGalleryResourceId
+    The name of the Azure Compute Gallery to be used for the desktop image.
+  .PARAMETER TargetRegions
+    The regions where the desktop image will be created. This is an array of strings that represent the Azure regions where the desktop image will be available. Defaults to West Europe and North Europe if not specified.
+  .PARAMETER ReplicaCount
+    The number of replicas to be created for the desktop image. Defaults to 5 if not specified.
+  .PARAMETER HibernationSupported
+    Indicates whether hibernation is supported for the desktop image. Defaults to false if not specified.
+  .PARAMETER ScriptedActions
+    The scripted action object containing name, id and other properties.
+  .EXAMPLE
+  New-NerdioMEDesktopImage -Name "TestModule" -ImageIdResourceGroupName "rg-infra-avd-dev-gal" `
+    -ImageType "AzureComputeGallery" -SubscriptionId "dd5a4399-3766-4520-9659-b6a98bf6ba8a" `
+    -VNetResourceId "/subscriptions/dd5a4399-3766-4520-9659-b6a98bf6ba8a/resourceGroups/rg-infra-common-network/providers/Microsoft.Network/virtualNetworks/infra-avd-vnet" `
+    -AdminPassword $Password `
+    -SubnetName "snet-avd-mgmt" `
+    -AzureComputeGalleryResourceId "/subscriptions/dd5a4399-3766-4520-9659-b6a98bf6ba8a/resourceGroups/rg-infra-avd-dev-gal/providers/Microsoft.Compute/galleries/infra_avd_dev_gal" `
+    -Verbose
+  .NOTES
+    Author: Niels Kok
+    Date: August 2025
+  #>
   [CmdletBinding()]
   param (
     [Parameter(Mandatory = $true, HelpMessage = "The name of the desktop image to be created. This is a string that will be used to identify the desktop image in Nerdio Manager for Enterprise.")]

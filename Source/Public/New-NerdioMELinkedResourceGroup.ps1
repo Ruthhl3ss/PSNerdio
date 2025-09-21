@@ -12,6 +12,8 @@ Function New-NerdioMELinkedResourceGroup {
   New-NerdioMELinkedResourceGroup -SubscriptionId "MySubscriptionId" -ResourceGroupName "MyResourceGroupName"
   Creates a new linked resource group in the specified subscription and resource group.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

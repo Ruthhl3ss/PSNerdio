@@ -10,6 +10,8 @@ Function Get-NerdioMEScriptedAction {
   Get-NerdioMEScriptedAction -Name "TestModule"
   Retrieves a scripted action for Nerdio Manager for Enterprise.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

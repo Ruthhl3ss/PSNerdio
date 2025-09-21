@@ -10,6 +10,8 @@ Function Invoke-NerdioMEDesktopImageScriptedAction {
     Invoke-NerdioMEDesktopImageScriptedAction -Name "TestModule"
     Invokes the specified scripted action for Nerdio Manager for Enterprise Desktop Images.
     .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

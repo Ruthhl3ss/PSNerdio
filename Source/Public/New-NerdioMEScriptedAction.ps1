@@ -19,7 +19,9 @@ Function New-NerdioMEScriptedAction {
     .EXAMPLE
     New-NerdioMEScriptedAction -Name "TestModule" -ScriptPath "C:\Temp\Test.ps1"
     Creates a new scripted action for Nerdio Manager for Enterprise.
-    .NOTES
+  .NOTES
+    Author: Niels Kok
+    Date: August 2025
     #>
 
   [CmdletBinding()]

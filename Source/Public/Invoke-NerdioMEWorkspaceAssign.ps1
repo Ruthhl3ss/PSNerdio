@@ -12,6 +12,9 @@ Function Invoke-NerdioMEWorkspaceAssign {
   Specifies the name of the resource group where the workspace is located.
   .EXAMPLE
   Invoke-NerdioMEWorkspaceAssign -WorkspaceName "MyWorkspace" -SubscriptionId "MySubscriptionId" -ResourceGroupName "MyResourceGroupName"
+  .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
   [CmdletBinding()]
   Param (

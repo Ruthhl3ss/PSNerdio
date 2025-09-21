@@ -16,6 +16,8 @@ Function Connect-NerdioME {
   Connect-NerdioME -TenantId "your-tenant-id" -ClientId "your-client-id" -ClientSecret "your-client-secret" -Scope "api://your-application-id/.default"
   Connects to the Nerdio Manager for Enterprise API using the specified tenant ID, client ID, client secret, and scope.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

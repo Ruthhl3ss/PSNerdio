@@ -10,6 +10,8 @@ Function Get-NerdioMELinkedResourceGroup {
   Get-NerdioMELinkedResourceGroup
   Retrieves the linked resource group for Nerdio Manager for Enterprise.
   .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
 
   [CmdletBinding()]

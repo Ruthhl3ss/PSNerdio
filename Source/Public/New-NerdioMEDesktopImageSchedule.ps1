@@ -44,6 +44,10 @@ Function New-NerdioMeDesktopImageSchedule {
 
   .EXAMPLE
   New-NerdioMeDesktopImageSchedule -DesktopImageName "MyDesktopImage" -ScheduleName "Weekly Update" -Verbose
+
+  .NOTES
+    Author: Niels Kok
+    Date: August 2025
   #>
   [CmdletBinding()]
   param (
