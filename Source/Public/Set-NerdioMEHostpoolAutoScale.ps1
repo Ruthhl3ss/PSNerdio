@@ -51,12 +51,18 @@ function Set-NerdioMEHostpoolAutoScale {
     $uri = "$script:NMEBaseurl/api/$Script:NMEApiVersion/auto-scale-profile/$($AutoScaleProfile.id)/assignments"
 
     $body = [pscustomobject]@{
-      hostpool = @{
-        hostPoolId = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$HostpoolName"
-        Type       = "Primary"
-        schedule   = $null
-      }
+      hostPoolId = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$HostpoolName"
+      Type       = "Primary"
+      schedule   = $null
     } | ConvertTo-Json -Depth 10
+
+    try {
+      Invoke-RestMethod -Method Post -Uri $uri -Headers $script:NMEAuthheader -Body $body -ContentType "application/json"
+      Write-Verbose "Successfully assigned Auto Scale Profile '$AutoScaleProfileName' to Hostpool '$HostpoolName'."
+    }
+    catch {
+      Throw "Error assigning Auto Scale Profile to Hostpool: $_"
+    }
 
   }
   End {
